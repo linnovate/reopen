@@ -25,7 +25,7 @@ spec:
         - name: PORT
           value: "9000"
         - name: RULES_API
-          value: http://rules-api:4040/
+          value: http://rules-api:4040
         image: localhost:5000/rules-client
         name: rules-client
         ports:
