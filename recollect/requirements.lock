@@ -1,0 +1,6 @@
+dependencies:
+- name: root
+  repository: file://../root
+  version: 0.1.0
+digest: sha256:c06c6a616ac2549dd172aedfead7049795e2193f9b50ff5dce9b7f7ff4eb9432
+generated: 2017-11-13T14:52:46.851871953+02:00
