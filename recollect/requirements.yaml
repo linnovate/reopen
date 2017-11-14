@@ -2,3 +2,6 @@ dependencies:
 - name: root
   version: "0.1.0"
   repository: "file://../root"
+- name: rules
+  version: "0.1.0"
+  repository: "file://../rules"

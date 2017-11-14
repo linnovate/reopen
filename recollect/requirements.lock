@@ -2,5 +2,8 @@ dependencies:
 - name: root
   repository: file://../root
   version: 0.1.0
-digest: sha256:c06c6a616ac2549dd172aedfead7049795e2193f9b50ff5dce9b7f7ff4eb9432
-generated: 2017-11-13T14:52:46.851871953+02:00
+- name: rules
+  repository: file://../rules
+  version: 0.1.0
+digest: sha256:c249e868f9406433695cafa954e9d8e9729e824a7f806cbd7e91241a56ef2200
+generated: 2017-11-14T10:31:17.68457169+02:00
