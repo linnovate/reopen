@@ -9,10 +9,12 @@ metadata:
     io.kompose.service: recollect-example
   name: recollect-example
 spec:
+  type: NodePort
   ports:
   - name: "3030"
     port: 3030
     targetPort: 3030
+    nodePort: 30100
   selector:
     io.kompose.service: recollect-example
 status:

@@ -9,10 +9,12 @@ metadata:
     io.kompose.service: rules-ui
   name: rules-ui
 spec:
+  type: NodePort
   ports:
   - name: "9000"
     port: 9000
     targetPort: 9000
+    nodePort: 30101
   selector:
     io.kompose.service: rules-ui
 status:

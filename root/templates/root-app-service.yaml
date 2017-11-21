@@ -9,10 +9,12 @@ metadata:
     io.kompose.service: root-app
   name: root-app
 spec:
+  type: NodePort
   ports:
   - name: "3100"
     port: 3100
     targetPort: 3100
+    nodePort: 30102
   selector:
     io.kompose.service: root-app
 status:
