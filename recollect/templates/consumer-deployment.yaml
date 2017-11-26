@@ -37,7 +37,7 @@ spec:
         - name: RABBITMQ_URL
           value: amqp://rabbitmq
         - name: RULES_API
-          value: http://rules-api:4040/api/rules
+          value: http://reroute-api:4040/api/rules
         image: linnovate/recollect
         name: consumer
         resources: {}

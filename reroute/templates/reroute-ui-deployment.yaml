@@ -24,7 +24,7 @@ spec:
         env:
         - name: PORT
           value: "9000"
-        - name: reroute_API
+        - name: RULES_API
           value: http://reroute-api:4040
         image: linnovate/reroute-ui
         name: reroute-ui
