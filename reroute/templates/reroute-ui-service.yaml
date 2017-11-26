@@ -6,14 +6,16 @@ metadata:
     kompose.version: 1.4.0 (c7964e7)
   creationTimestamp: null
   labels:
-    io.kompose.service: rules-api
-  name: rules-api
+    io.kompose.service: reroute-ui
+  name: reroute-ui
 spec:
+  type: NodePort
   ports:
-  - name: "4040"
-    port: 4040
-    targetPort: 4040
+  - name: "9000"
+    port: 9000
+    targetPort: 9000
+    nodePort: 30101
   selector:
-    io.kompose.service: rules-api
+    io.kompose.service: reroute-ui
 status:
   loadBalancer: {}
