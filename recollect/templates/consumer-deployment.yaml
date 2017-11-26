@@ -38,7 +38,7 @@ spec:
           value: amqp://rabbitmq
         - name: RULES_API
           value: http://rules-api:4040/api/rules
-        image: localhost:5000/recollect
+        image: linnovate/recollect
         name: consumer
         resources: {}
         workingDir: /usr/src/app

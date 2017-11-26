@@ -24,7 +24,7 @@ spec:
         env:
         - name: RECOLLECT_API
           value: http://api:3005/api/create
-        image: localhost:5000/recollect-example
+        image: linnovate/recollect-example
         name: recollect-example
         ports:
         - containerPort: 3030
