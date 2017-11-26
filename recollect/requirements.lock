@@ -2,8 +2,8 @@ dependencies:
 - name: root
   repository: file://../root
   version: 0.1.0
-- name: rules
-  repository: file://../rules
+- name: reroute
+  repository: file://../reroute
   version: 0.1.0
-digest: sha256:c249e868f9406433695cafa954e9d8e9729e824a7f806cbd7e91241a56ef2200
-generated: 2017-11-21T14:07:26.0540791+02:00
+digest: sha256:c15291b977799f05c2d85381bee9fc7b4507b280e153b59e8c4d59f6e275a4dc
+generated: 2017-11-26T14:47:32.966098466+02:00
