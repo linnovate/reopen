@@ -36,7 +36,7 @@ spec:
           value: recollect-index
         - name: RABBITMQ_URL
           value: amqp://rabbitmq
-        image: linnovate/recollect
+        image: linnovate/recollect:0.0.1
         name: api
         ports:
         - containerPort: 3005
