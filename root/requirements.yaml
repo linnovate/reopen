@@ -1,0 +1,4 @@
+dependencies:
+- name: root-graphql
+  version: "0.1.0"
+  repository: "file://../root-graphql"

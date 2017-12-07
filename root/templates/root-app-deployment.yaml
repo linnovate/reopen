@@ -18,7 +18,7 @@ spec:
         io.kompose.service: root-app
     spec:
       containers:
-      - image: linnovate/root:0.0.1
+      - image: linnovate/root:0.0.2
         name: root-app
         ports:
         - containerPort: 3100

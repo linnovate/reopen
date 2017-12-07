@@ -1,0 +1,6 @@
+dependencies:
+- name: root-graphql
+  repository: file://../root-graphql
+  version: 0.1.0
+digest: sha256:8a28deef5b6d5c7242d8ae53b7ef34e75e9f8cd438c3c7ac9b106e36c010dc6f
+generated: 2017-12-07T15:15:01.727531099+02:00
