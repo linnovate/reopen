@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: api-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+spec:
+  rules:
+  - host: 'api.aks.linnovate.net'
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: api
+          servicePort: 3005
