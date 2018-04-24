@@ -1,0 +1,7 @@
+# vim swap
+.swo
+.swx
+.swp
+
+# lock files
+.lock
