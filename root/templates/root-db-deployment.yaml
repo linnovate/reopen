@@ -18,7 +18,7 @@ spec:
         io.kompose.service: root-db
     spec:
       containers:
-      - image: mongo
+      - image: mongo:3.4
         name: root-db
         resources: {}
       restartPolicy: Always
