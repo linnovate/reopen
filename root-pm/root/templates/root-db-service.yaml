@@ -12,7 +12,8 @@ spec:
   clusterIP: None
   ports:
   - name: headless
-    port: 55555
+#    port: 55555
+    port: {{ .Values.spec.ports.port }}
     targetPort: 0
   selector:
     io.kompose.service: root-db

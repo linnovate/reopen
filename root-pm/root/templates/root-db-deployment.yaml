@@ -29,7 +29,7 @@ spec:
       volumes:
       - name: mongo-volume
         hostPath:
-          path: /data/mongo/linnovate/root
+          path: "/data/mongo/linnovate/root/{{ .Release.Namespace }}"
 
       restartPolicy: Always
 status: {}
