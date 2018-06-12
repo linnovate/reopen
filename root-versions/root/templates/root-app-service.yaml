@@ -6,15 +6,17 @@ metadata:
     kompose.version: 1.4.0 (c7964e7)
   creationTimestamp: null
   labels:
-    io.kompose.service: root-db
-  name: root-db
+    io.kompose.service: root-app
+  name: root-app
 spec:
-  clusterIP: None
+  type: ClusterIP
+#  type: NodePort
   ports:
-  - name: headless
-    port: 55555
-    targetPort: 0
+  - name: "3000"
+    port: 3000
+    targetPort: 3000
+#    nodePort: 30102
   selector:
-    io.kompose.service: root-db
+    io.kompose.service: root-app
 status:
   loadBalancer: {}

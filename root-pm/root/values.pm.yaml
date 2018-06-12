@@ -4,10 +4,6 @@ image:
   tag: stable
   pullPolicy: IfNotPresent
 
-spec:
-  ports:
-   port: 5556
-
 ingress:
   host:
     root: projects.linnovate.net

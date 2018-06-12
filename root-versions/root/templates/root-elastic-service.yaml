@@ -6,8 +6,8 @@ metadata:
     kompose.version: 1.4.0 (c7964e7)
   creationTimestamp: null
   labels:
-    io.kompose.service: root-db
-  name: root-db
+    io.kompose.service: root-elastic
+  name: root-elastic
 spec:
   clusterIP: None
   ports:
@@ -15,6 +15,6 @@ spec:
     port: 55555
     targetPort: 0
   selector:
-    io.kompose.service: root-db
+    io.kompose.service: root-elastic
 status:
   loadBalancer: {}
