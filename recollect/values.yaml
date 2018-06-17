@@ -17,6 +17,10 @@
 #{{ .Values.recollect-example.deployment.registry }}/{{ .Values.recollect-example.deployment.image }}:{{ .Values.recollect-example.deployment.tag }}
 
 #{{ .Values.recollect-example.deployment.replicas }}
+
+#{{ .Values.recollect-example.service.default.port }}
+#{{ .Values.recollect-example.service.default.targetPort }}
+
 recollect-example:
   deployment:
    replicas: 1
