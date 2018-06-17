@@ -1,7 +1,7 @@
 #!/bin/bash -xe
 
-namespace=$1
-chart=root
+chart=$1
+namespace=$2
 chart_path=../charts/$chart
 
 helm delete --purge "${chart}-${namespace}" || echo "chart was not installed"
