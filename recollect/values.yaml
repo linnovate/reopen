@@ -16,6 +16,7 @@
 
 #{{ .Values.recollect-example.deployment.registry }}/{{ .Values.recollect-example.deployment.image }}:{{ .Values.recollect-example.deployment.tag }}
 
+#{{ .Values.recollect-example.deployment.replicaCount }}
 recollect-example:
   deployment:
    replicaCount: 1
@@ -24,6 +25,10 @@ recollect-example:
       name: linnovate/recollect-example
       tag: latest
     resources: {}
+  service:
+    default:
+      port: 3030
+      targetPort: 3030
 
 elasticsearch:
   deployment:
@@ -33,6 +38,10 @@ elasticsearch:
       name: elasticsearch
       tag: 5.6.9
     resources: {}
+  service:
+    default:
+      port: 9200
+      targetPort: 9200
 
 api:
   deployment:
@@ -42,6 +51,10 @@ api:
       name: linnovate/recollect
       tag: 0.0.3
     resources: {}
+  service:
+    default:
+      port: 3005
+      targetPort: 3005
 
 kibana:
   deployment:
@@ -51,6 +64,10 @@ kibana:
       name: kibana
       tag: 5.5.0
     resources: {}
+  service:
+    default:
+      port: 5601
+      targetPort: 5601
 
 rabbitmq:
   deployment:
@@ -60,6 +77,13 @@ rabbitmq:
       name: rabbitmq
       tag: 3.6.15-management
     resources: {}
+  service:
+    default:
+      port: 5672
+      targetPort: 5672
+    management:
+      port: 15672
+      targetPort: 15672
 
 consumer:
   deployment:
@@ -69,6 +93,10 @@ consumer:
       name: linnovate/recollect
       tag: 0.0.3
     resources: {}
+  service:
+    default:
+      port: 55555
+      targetPort: 55555
 
 global:
   ingress:
