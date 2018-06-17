@@ -12,9 +12,10 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: "5601"
-    port: 5601
-    targetPort: 5601
+  ports:
+  - name: {{ .Values.kibana.service.default.name }}
+    port: {{ .Values.kibana.service.default.port }}
+    targetPort: {{ .Values.kibana.service.default.targetPort }}
   selector:
     io.kompose.service: kibana
 status:

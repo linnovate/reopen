@@ -12,9 +12,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: "3005"
-    port: 3005
-    targetPort: 3005
+  - name: {{ .Values.api.service.default.name }}
+    port: {{ .Values.api.service.default.port }}
+    targetPort: {{ .Values.api.service.default.targetPort }}
   selector:
     io.kompose.service: api
 status:

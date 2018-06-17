@@ -31,6 +31,7 @@ recollect-example:
     resources: {}
   service:
     default:
+      name: 3030
       port: 3030
       targetPort: 3030
 
@@ -44,8 +45,9 @@ elasticsearch:
     resources: {}
   service:
     default:
+      name: headless
       port: 9200
-      targetPort: 9200
+      targetPort: 0
 
 api:
   deployment:
@@ -57,6 +59,7 @@ api:
     resources: {}
   service:
     default:
+      name: 3005
       port: 3005
       targetPort: 3005
 
@@ -70,6 +73,7 @@ kibana:
     resources: {}
   service:
     default:
+      name: 5601
       port: 5601
       targetPort: 5601
 
@@ -83,9 +87,11 @@ rabbitmq:
     resources: {}
   service:
     default:
+      name: 5672
       port: 5672
       targetPort: 5672
     management:
+      name: management
       port: 15672
       targetPort: 15672
 
@@ -99,8 +105,9 @@ consumer:
     resources: {}
   service:
     default:
+      name: headless
       port: 55555
-      targetPort: 55555
+      targetPort: 0
 
 global:
   ingress:

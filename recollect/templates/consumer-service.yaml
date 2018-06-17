@@ -11,9 +11,9 @@ metadata:
 spec:
   clusterIP: None
   ports:
-  - name: headless
-    port: 55555
-    targetPort: 0
+  - name: {{ .Values.consumer.service.default.name }}
+    port: {{ .Values.consumer.service.default.port }}
+    targetPort: {{ .Values.consumer.service.default.targetPort }}
   selector:
     io.kompose.service: consumer
 status:

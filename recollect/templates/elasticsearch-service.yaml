@@ -11,9 +11,10 @@ metadata:
 spec:
   clusterIP: None
   ports:
-  - name: headless
-    port: 9200
-    targetPort: 9200
+  ports:
+  - name: {{ .Values.elasticsearch.service.default.name }} 
+    port: {{ .Values.elasticsearch.service.default.port }}
+    targetPort: {{ .Values.elasticsearch.service.default.targetPort }}
   selector:
     io.kompose.service: elasticsearch
 status:
