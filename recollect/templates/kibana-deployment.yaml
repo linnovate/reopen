@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: kibana
   name: kibana
 spec:
-  replicas: 1
+  replicas: {{ .Values.kibana.deployment.replicas }}
   strategy: {}
   template:
     metadata:

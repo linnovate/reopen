@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: elasticsearch
   name: elasticsearch
 spec:
-  replicas: 1
+  replicas: {{ .Values.elasticsearch.deployment.replicas }}
   strategy: {}
   template:
     metadata:

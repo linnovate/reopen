@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: recollect-example
   name: recollect-example
 spec:
-  replicas: 1
+  replicas: {{ .Values.api.recollect-example.replicas }}
   strategy: {}
   template:
     metadata:
