@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: dhconnect
-          servicePort: 4041
+          servicePort: {{ .Values.dhconnect.service.default.port }}

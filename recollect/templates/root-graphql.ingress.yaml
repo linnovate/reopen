@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: root-graphql
-          servicePort: 3007
+          servicePort: {{ .Values.root-graphql.service.default.port }}   

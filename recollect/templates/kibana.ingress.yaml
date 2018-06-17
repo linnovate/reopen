@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: kibana
-          servicePort: 5601
+          servicePort: {{ .Values.kibana.service.default.port }}

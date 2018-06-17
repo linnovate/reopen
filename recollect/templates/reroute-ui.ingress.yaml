@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: reroute-ui
-          servicePort: 9000
+          servicePort: {{ .Values.reroute-ui.service.default.port }}

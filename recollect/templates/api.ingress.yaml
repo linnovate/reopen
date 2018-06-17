@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: api
-          servicePort: 3005
+          servicePort: {{ .Values.api.service.default.port }}

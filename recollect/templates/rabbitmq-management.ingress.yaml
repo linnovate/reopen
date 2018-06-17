@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: rabbitmq
-          servicePort: 15672
+          servicePort: {{ .Values.api.service.management.port }}
