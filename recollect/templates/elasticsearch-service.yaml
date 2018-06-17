@@ -12,8 +12,8 @@ spec:
   clusterIP: None
   ports:
   - name: headless
-    port: 55555
-    targetPort: 0
+    port: 9200
+    targetPort: 9200
   selector:
     io.kompose.service: elasticsearch
 status:
