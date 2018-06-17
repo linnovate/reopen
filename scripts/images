@@ -1,14 +1,11 @@
 
-elasticsearch
-elasticsearch:latest
+elasticsearch:5.6.9
 kibana:5.5.0
 linnovate/danhotels-dhconnect
 linnovate/recollect:0.0.3
 linnovate/recollect-example
 linnovate/reroute
 linnovate/reroute-ui:0.0.2
-linnovate/root:0.0.2
 linnovate/root-graphql:0.0.1
-mongo
-mongo:latest
-rabbitmq:management
+mongo:3.6.3
+rabbitmq:3.6.15-management
