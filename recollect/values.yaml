@@ -16,10 +16,10 @@
 
 #{{ .Values.recollect-example.deployment.registry }}/{{ .Values.recollect-example.deployment.image }}:{{ .Values.recollect-example.deployment.tag }}
 
-#{{ .Values.recollect-example.deployment.replicaCount }}
+#{{ .Values.recollect-example.deployment.replicas }}
 recollect-example:
   deployment:
-   replicaCount: 1
+   replicas: 1
     image:
       registry: 'docker.io'
       name: linnovate/recollect-example
@@ -32,7 +32,7 @@ recollect-example:
 
 elasticsearch:
   deployment:
-    replicaCount: 1
+    replicas: 1
     image:
       registry: 'docker.io'
       name: elasticsearch
@@ -45,7 +45,7 @@ elasticsearch:
 
 api:
   deployment:
-    replicaCount: 1
+    replicas: 1
     image:
       registry: 'docker.io'
       name: linnovate/recollect
@@ -58,7 +58,7 @@ api:
 
 kibana:
   deployment:
-    replicaCount: 1
+    replicas: 1
     image:
       registry: 'docker.io'
       name: kibana
@@ -71,7 +71,7 @@ kibana:
 
 rabbitmq:
   deployment:
-    replicaCount: 1
+    replicas: 1
     image:
       registry: 'docker.io'
       name: rabbitmq
@@ -87,7 +87,7 @@ rabbitmq:
 
 consumer:
   deployment:
-    replicaCount: 1
+    replicas: 1
     image:
       registry: 'docker.io'
       name: linnovate/recollect
