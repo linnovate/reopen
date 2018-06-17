@@ -15,12 +15,47 @@
 #  memory: 128Mi
  
 deployments:
-  recollect:
+  recollect-example:
     replicaCount: 1
     image:
       registry: 'docker.io'
-      name: 
-      tag: stable
+      name: linnovate/recollect-example
+      tag: latest
+    resources: {}
+  elasticsearch:
+    replicaCount: 1
+    image:
+      registry: 'docker.io'
+      name: elasticsearch
+      tag: 5.6.9
+    resources: {}
+  api:
+    replicaCount: 1
+    image:
+      registry: 'docker.io'
+      name: linnovate/recollect
+      tag: 0.0.3
+    resources: {}
+  kibana:
+    replicaCount: 1
+    image:
+      registry: 'docker.io'
+      name: kibana
+      tag: 5.5.0
+    resources: {}
+  rabbitmq:
+    replicaCount: 1
+    image:
+      registry: 'docker.io'
+      name: rabbitmq
+      tag: 3.6.15-management
+    resources: {}
+  consumer:
+    replicaCount: 1
+    image:
+      registry: 'docker.io'
+      name: linnovate/recollect
+      tag: 0.0.3
     resources: {}
 
 global:
