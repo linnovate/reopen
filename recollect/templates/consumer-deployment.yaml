@@ -38,7 +38,8 @@ spec:
           value: amqp://rabbitmq
         - name: RULES_API
           value: http://reroute-api:4040/api/rules
-        image: linnovate/recollect:0.0.3
+        image: {{ .Values.consumer.deployment.registry }}/{{ .Values.consumer.deployment.image }}:{{ .Values.consumer.deployment.tag }}
+
         name: consumer
         resources: {}
         workingDir: /usr/src/app

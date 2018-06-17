@@ -24,7 +24,7 @@ spec:
         env:
         - name: RECOLLECT_API
           value: http://api:3005/api/create
-        image: linnovate/recollect-example
+        image: {{ .Values.recollect-example.deployment.registry }}/{{ .Values.recollect-example.deployment.image }}:{{ .Values.recollect-example.deployment.tag }}        
         name: recollect-example
         ports:
         - containerPort: 3030

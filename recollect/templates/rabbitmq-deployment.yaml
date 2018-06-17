@@ -18,7 +18,8 @@ spec:
         io.kompose.service: rabbitmq
     spec:
       containers:
-      - image: rabbitmq:3.6.15-management
+      - image: {{ .Values.rabbitmq.deployment.registry }}/{{ .Values.rabbitmq.deployment.image }}:{{ .Values.rabbitmq.deployment.tag }}
+
         name: rabbitmq
         ports:
         - containerPort: 15672

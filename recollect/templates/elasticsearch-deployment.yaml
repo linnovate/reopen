@@ -18,7 +18,8 @@ spec:
         io.kompose.service: elasticsearch
     spec:
       containers:
-      - image: elasticsearch:5.6.9
+      - image: {{ .Values.elasticsearch.deployment.registry }}/{{ .Values.elasticsearch.deployment.image }}:{{ .Values.elasticsearch.deployment.tag }}
+
         name: elasticsearch
         resources: {}
       restartPolicy: Always

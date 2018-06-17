@@ -18,7 +18,8 @@ spec:
         io.kompose.service: kibana
     spec:
       containers:
-      - image: kibana:5.5.0
+      - image: {{ .Values.kibana.deployment.registry }}/{{ .Values.kibana.deployment.image }}:{{ .Values.kibana.deployment.tag }}
+
         name: kibana
         ports:
         - containerPort: 5601
