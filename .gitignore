@@ -1,7 +1,7 @@
 # vim swap
-.swo
-.swx
-.swp
+*.swo
+*.swx
+*.swp
 
 # lock files
-.lock
+*.lock
