@@ -29,18 +29,17 @@ spec:
         - name: ES_INDEX
           value: recollect-events
         - name: ES_URL
-          value: http://elasticsearch:9200
+          value: http://elasticsearch:{{ .Values.elasticsearch.service.default.port }}
         - name: PORT
-          value: "3005"
+          value: {{ .Values.api.service.default.targetPort }}
         - name: QUEUE_NAME
           value: recollect-index
         - name: RABBITMQ_URL
           value: amqp://rabbitmq
         image: {{ .Values.api.deployment.registry }}/{{ .Values.api.deployment.image }}:{{ .Values.api.deployment.tag }}
-
         name: api
         ports:
-        - containerPort: 3005
+        - containerPort: {{ .Values.api.service.default.targetPort }}
         resources: {}
         workingDir: /usr/src/app
       restartPolicy: Always
