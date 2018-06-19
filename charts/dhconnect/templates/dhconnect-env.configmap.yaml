@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  EXTERNAL_PORT: "4041"
+  HELLOGUEST_API_URL: https://staging.api.helloguest.io/DAN/reservation-exchange/v1
+  HELLOGUEST_CLIENT_ID: 0f644375-3b05-44e8-be00-7c28e258aa7c
+  HELLOGUEST_GRANT_TYPE: client_credentials
+  HELLOGUEST_SECRET: tGLIpGbnLtBarUrVfvE9KZCU4F90i6ad
+  NODE_ENV: development
+  NODE_TLS_REJECT_UNAUTHORIZED: "0"
+  ORG: danhotels
+  PORT: "4041"
+  PROJECT: dhconnect
+  REGISTRY: linnovate
+  SILVERBYTE_API_URL: http://partner.webbnb.com/Silverbyte.GuestPortal.DmzApplication/
+  SILVERBYTE_AUTHORIZATION: 59ed77200729f5933e7ede10
+  SILVERBYTE_PASSWORD: "123456789"
+  SILVERBYTE_USERNAME: DanTelAvivUser
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: dhconnect-env
