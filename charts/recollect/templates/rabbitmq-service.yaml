@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: rabbitmq
   name: rabbitmq
 spec:
+  type: ClusterIP
   ports:
   - name: {{ .Values.rabbitmq.service.default.name }}
     port: {{ .Values.rabbitmq.service.default.port }}                                           
