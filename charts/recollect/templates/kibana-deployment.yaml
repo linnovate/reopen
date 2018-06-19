@@ -19,10 +19,9 @@ spec:
     spec:
       containers:
       - image: {{ .Values.kibana.deployment.registry }}/{{ .Values.kibana.deployment.image }}:{{ .Values.kibana.deployment.tag }}
-
         name: kibana
         ports:
-        - containerPort: 5601
+        - containerPort: {{ .Values.kibana.service.default.targetPort }}
         resources: {}
       restartPolicy: Always
 status: {}
