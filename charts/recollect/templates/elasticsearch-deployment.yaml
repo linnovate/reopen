@@ -19,8 +19,9 @@ spec:
     spec:
       containers:
       - image: {{ .Values.elasticsearch.deployment.registry }}/{{ .Values.elasticsearch.deployment.image }}:{{ .Values.elasticsearch.deployment.tag }}
-
         name: elasticsearch
+        ports:
+        - containerPort: {{ .Values.elasticsearch.service.default.targetPort }}
         resources: {}
       restartPolicy: Always
 status: {}
