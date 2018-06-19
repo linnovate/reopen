@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -c
+    kompose.version: 1.4.0 (c7964e7)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: recollect-example
+  name: recollect-example
+spec:
+  replicas: {{ .Values.api.recollect-example.replicas }}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: recollect-example
+    spec:
+      containers:
+      - args:
+        - npm
+        - start
+        env:
+        - name: RECOLLECT_API
+          value: http://api:3005/api/create
+        image: {{ .Values.recollect-example.deployment.registry }}/{{ .Values.recollect-example.deployment.image }}:{{ .Values.recollect-example.deployment.tag }}        
+        name: recollect-example
+        ports:
+        - containerPort: 3030
+        resources: {}
+        workingDir: /usr/src/app
+      restartPolicy: Always
+status: {}

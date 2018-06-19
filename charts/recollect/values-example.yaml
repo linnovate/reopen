@@ -1,0 +1,116 @@
+# Default values for recollect.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Note about resources
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+# limits:
+#  cpu: 100m
+#    memory: 128Mi
+# requests:
+#  cpu: 100m
+#  memory: 128Mi
+
+#{{ .Values.recollect-example.deployment.registry }}/{{ .Values.recollect-example.deployment.image }}:{{ .Values.recollect-example.deployment.tag }}
+
+#{{ .Values.recollect-example.deployment.replicas }}
+
+#{{ .Values.recollect-example.service.default.port }}
+#{{ .Values.recollect-example.service.default.targetPort }}
+
+recollect-example:
+  deployment:
+   replicas: 1
+    image:
+      registry: 'docker.io'
+      name: linnovate/recollect-example
+      tag: latest
+    resources: {}
+  service:
+    default:
+      name: 3030
+      port: 3030
+      targetPort: 3030
+
+elasticsearch:
+  deployment:
+    replicas: 1
+    image:
+      registry: 'docker.io'
+      name: elasticsearch
+      tag: 5.6.9
+    resources: {}
+  service:
+    default:
+      name: headless
+      port: 9200
+      targetPort: 0
+
+api:
+  deployment:
+    replicas: 1
+    image:
+      registry: 'docker.io'
+      name: linnovate/recollect
+      tag: 0.0.3
+    resources: {}
+  service:
+    default:
+      name: 3005
+      port: 3005
+      targetPort: 3005
+
+kibana:
+  deployment:
+    replicas: 1
+    image:
+      registry: 'docker.io'
+      name: kibana
+      tag: 5.5.0
+    resources: {}
+  service:
+    default:
+      name: 5601
+      port: 5601
+      targetPort: 5601
+
+rabbitmq:
+  deployment:
+    replicas: 1
+    image:
+      registry: 'docker.io'
+      name: rabbitmq
+      tag: 3.6.15-management
+    resources: {}
+  service:
+    default:
+      name: 5672
+      port: 5672
+      targetPort: 5672
+    management:
+      name: management
+      port: 15672
+      targetPort: 15672
+
+consumer:
+  deployment:
+    replicas: 1
+    image:
+      registry: 'docker.io'
+      name: linnovate/recollect
+      tag: 0.0.3
+    resources: {}
+  service:
+    default:
+      name: headless
+      port: 55555
+      targetPort: 0
+
+global:
+  ingress:
+    wildcard: 'cluster.local'
+  image: 
+    registry: 'docker.io'

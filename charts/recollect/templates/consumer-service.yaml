@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.4.0 (c7964e7)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: consumer
+  name: consumer
+spec:
+  clusterIP: None
+  ports:
+  - name: {{ .Values.consumer.service.default.name }}
+    port: {{ .Values.consumer.service.default.port }}
+    targetPort: {{ .Values.consumer.service.default.targetPort }}
+  selector:
+    io.kompose.service: consumer
+status:
+  loadBalancer: {}
