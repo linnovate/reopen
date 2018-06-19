@@ -12,7 +12,6 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  ports:
   - name: {{ .Values.kibana.service.default.name }}
     port: {{ .Values.kibana.service.default.port }}
     targetPort: {{ .Values.kibana.service.default.targetPort }}
