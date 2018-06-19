@@ -18,7 +18,7 @@ spec:
         io.kompose.service: elasticsearch
     spec:
       containers:
-      - image: {{ .Values.elasticsearch.deployment.registry }}/{{ .Values.elasticsearch.deployment.image }}:{{ .Values.elasticsearch.deployment.tag }}
+      - image: {{ .Values.image.registry }}/{{ .Values.elasticsearch.deployment.image }}:{{ .Values.elasticsearch.deployment.tag }}
         name: elasticsearch
         ports:
         - containerPort: {{ .Values.elasticsearch.service.default.targetPort }}
