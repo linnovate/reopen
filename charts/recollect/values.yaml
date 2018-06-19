@@ -45,9 +45,9 @@ elasticsearch:
     resources: {}
   service:
     default:
-      name: headless
+      name: default
       port: 9200
-      targetPort: 0
+      targetPort: 9200
 
 api:
   deployment:
@@ -103,11 +103,6 @@ consumer:
       name: linnovate/recollect
       tag: 0.0.3
     resources: {}
-  service:
-    default:
-      name: headless
-      port: 55555
-      targetPort: 0
 
 global:
   ingress:
