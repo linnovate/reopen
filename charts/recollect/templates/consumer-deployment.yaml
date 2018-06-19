@@ -29,15 +29,13 @@ spec:
         - name: ES_INDEX
           value: recollect-events
         - name: ES_URL
-          value: http://elasticsearch:9200
-        - name: PORT
-          value: "3005"
+          value: http://elasticsearch:{{ .Values.elasticsearch.service.default.port }}
         - name: QUEUE_NAME
           value: recollect-index
         - name: RABBITMQ_URL
           value: amqp://rabbitmq
         - name: RULES_API
-          value: http://reroute-api:4040/api/rules
+          value: http://reroute-api:{{ .Values.reroute-api.service.default.port }}/api/rules
         image: {{ .Values.consumer.deployment.registry }}/{{ .Values.consumer.deployment.image }}:{{ .Values.consumer.deployment.tag }}
 
         name: consumer
