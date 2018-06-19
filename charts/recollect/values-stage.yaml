@@ -25,7 +25,6 @@ recollect-example:
   deployment:
    replicas: 1
     image:
-      registry: 'docker.io'
       name: linnovate/recollect-example
       tag: latest
     resources: {}
@@ -39,21 +38,19 @@ elasticsearch:
   deployment:
     replicas: 1
     image:
-      registry: 'docker.io'
       name: elasticsearch
       tag: 5.6.9
     resources: {}
   service:
     default:
-      name: headless
+      name: default
       port: 9200
-      targetPort: 0
+      targetPort: 9200
 
 api:
   deployment:
     replicas: 1
     image:
-      registry: 'docker.io'
       name: linnovate/recollect
       tag: 0.0.3
     resources: {}
@@ -67,7 +64,6 @@ kibana:
   deployment:
     replicas: 1
     image:
-      registry: 'docker.io'
       name: kibana
       tag: 5.5.0
     resources: {}
@@ -81,7 +77,6 @@ rabbitmq:
   deployment:
     replicas: 1
     image:
-      registry: 'docker.io'
       name: rabbitmq
       tag: 3.6.15-management
     resources: {}
@@ -99,15 +94,9 @@ consumer:
   deployment:
     replicas: 1
     image:
-      registry: 'docker.io'
       name: linnovate/recollect
       tag: 0.0.3
     resources: {}
-  service:
-    default:
-      name: headless
-      port: 55555
-      targetPort: 0
 
 global:
   ingress:
