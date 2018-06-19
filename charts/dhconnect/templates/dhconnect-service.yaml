@@ -9,12 +9,11 @@ metadata:
     io.kompose.service: dhconnect
   name: dhconnect
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-  - name: "4041"
-    port: 4041
-    targetPort: 4041
-    nodePort: 30105
+  - name: {{ .Values.dhconnect.service.default.name }} 
+    port: {{ .Values.dhconnect.service.default.port }} 
+    targetPort: {{ .Values.dhconnect.service.default.targetPort }} 
   selector:
     io.kompose.service: dhconnect
 status:

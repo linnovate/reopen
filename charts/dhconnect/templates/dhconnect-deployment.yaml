@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: dhconnect
   name: dhconnect
 spec:
-  replicas: 1
+  replicas: {{ .Values.dhconnect.deployment.replicas }}
   strategy: {}
   template:
     metadata:
@@ -94,10 +94,10 @@ spec:
             configMapKeyRef:
               key: SILVERBYTE_USERNAME
               name: dhconnect-env
-        image: linnovate/danhotels-dhconnect
+        image: {{ .Values.image.registry }}/{{ .Values.dhconnect.deployment.image }}:{{ .Values.dhconnect.deployment.tag }}
         name: danhotels-dhconnect
         ports:
-        - containerPort: 4041
+        - containerPort: {{ .Values.dhconnect.service.default.targetPort }} 
         resources: {}
       restartPolicy: Always
 status: {}
