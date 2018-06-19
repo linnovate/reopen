@@ -10,9 +10,9 @@ metadata:
   name: reroute-api
 spec:
   ports:
-  - name: "4040"
-    port: 4040
-    targetPort: 4040
+  - name: {{ .Values.reroute-api.service.default.name }}
+    port:  {{ .Values.reroute-api.service.default.port }}
+    targetPort: {{ .Values.reroute-api.service.default.targetPort }} 
   selector:
     io.kompose.service: reroute-api
 status:

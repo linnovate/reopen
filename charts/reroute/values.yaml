@@ -1,0 +1,66 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Note about resources
+# We usually recommend not to specify default resources and to leave this as a conscious
+# choice for the user. This also increases chances charts run on environments with little
+# resources, such as Minikube. If you do want to specify resources, uncomment the following
+# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+# limits:
+#  cpu: 100m                                                                                                                                             
+#    memory: 128Mi
+# requests:
+#  cpu: 100m
+#  memory: 128Mi
+
+# image: {{ .Values.image.registry }}/{{ .Values.reroute-ui.deployment.image }}:{{ .Values.reroute-ui.deployment.tag }}
+# replicas: {{ .Values.reroute-ui.deployment.replicas }}
+# external-service-port: {{ .Values.reroute-ui.service.default.port }}
+# internal-service-port: {{ .Values.reroute-ui.service.default.targetPort }}
+# ingress: example.{{ .Release.Namespace }}.{{ .Values.ingress.wildcard }}
+
+mongo:
+  deployment:
+    replicas: 1
+    image:
+      name: mongo
+      tag: 3.6.3
+    resources: {}
+  service:
+    default:
+      name: default
+      port: 27017
+      targetPort: 27017
+
+reroute-api:
+  deployment:
+    replicas: 1
+    image:
+      name: linnovate/reroute
+      tag: latest
+    resources: {}
+  service:
+    default:
+      name: default
+      port: 4040
+      targetPort: 4040
+
+reroute-ui:
+  deployment:
+    replicas: 1
+    image:
+      name: linnovate/reroute-ui
+      tag: 0.0.2
+    resources: {}
+  service:
+    default:
+      name: default
+      port: 9000
+      targetPort: 9000
+
+# overriden by global when deployed as part of recollect
+ingress:
+  wildcard: 'cluster.local'
+image: 
+  registry: 'docker.io'
+

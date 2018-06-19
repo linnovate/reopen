@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: reroute-ui
   name: reroute-ui
 spec:
-  replicas: 1
+  replicas: {{ .Values.reroute-ui.deployment.replicas }}
   strategy: {}
   template:
     metadata:
@@ -23,13 +23,13 @@ spec:
         - server
         env:
         - name: PORT
-          value: "9000"
+          value: {{ .Values.reroute-ui.service.default.targetPort }} 
         - name: RULES_API
-          value: http://reroute-api:4040
-        image: linnovate/reroute-ui:0.0.2
-        name: reroute-ui
+          value: http://reroute-api:{{ .Values.reroute-api.service.default.port }}
+        image: 
+        name: {{ .Values.image.registry }}/{{ .Values.reroute-ui.deployment.image }}:{{ .Values.reroute-ui.deployment.tag }}
         ports:
-        - containerPort: 9000
+        - containerPort: {{ .Values.reroute-ui.service.default.targetPort }} 
         resources: {}
         workingDir: /usr/src/app
       restartPolicy: Always

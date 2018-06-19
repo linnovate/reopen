@@ -9,12 +9,11 @@ metadata:
     io.kompose.service: reroute-ui
   name: reroute-ui
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-  - name: "9000"
-    port: 9000
-    targetPort: 9000
-    nodePort: 30101
+  - name: {{ .Values.reroute-ui.service.default.name }}
+    port: {{ .Values.reroute-ui.service.default.port }}
+    targetPort: {{ .Values.reroute-ui.service.default.targetPort }}
   selector:
     io.kompose.service: reroute-ui
 status:

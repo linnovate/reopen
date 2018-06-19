@@ -10,9 +10,9 @@ metadata:
   name: mongo
 spec:
   ports:
-  - name: "27017"
-    port: 27017
-    targetPort: 27017
+  - name: {{ .Values.mongo.service.default.name }}
+    port: {{ .Values.mongo.service.default.port }}
+    targetPort: {{ .Values.mongo.service.default.targetPort }}
   selector:
     io.kompose.service: mongo
 status:
