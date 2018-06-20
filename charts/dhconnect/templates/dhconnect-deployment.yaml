@@ -94,7 +94,7 @@ spec:
             configMapKeyRef:
               key: SILVERBYTE_USERNAME
               name: dhconnect-env
-        image: "{{ .Values.image.registry }}/{{ .Values.dhconnect.deployment.image.name }}:{{ .Values.dhconnect.deployment.image.tag }}"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.dhconnect.deployment.image.name }}:{{ .Values.dhconnect.deployment.image.tag }}"
         name: danhotels-dhconnect
         ports:
         - containerPort: {{ .Values.dhconnect.service.default.targetPort }} 

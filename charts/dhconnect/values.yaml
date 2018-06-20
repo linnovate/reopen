@@ -33,8 +33,9 @@ dhconnect:
       targetPort: 4041
 
 # overriden by global when deployed as part of recollect
-ingress:
-  wildcard: 'cluster.local'
-image: 
-  registry: 'docker.io'
+global:
+  ingress:
+    wildcard: 'cluster.local'
+  image: 
+    registry: 'docker.io'
 

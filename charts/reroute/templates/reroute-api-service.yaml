@@ -11,7 +11,7 @@ metadata:
 spec:
   ports:
   - name: "{{ .Values.reroute_api.service.default.name }}"
-    port:  {{ .Values.reroute_api.service.default.port }}
+    port:  {{ .Values.global.reroute_api.service.default.port }}
     targetPort: {{ .Values.reroute_api.service.default.targetPort }} 
   selector:
     io.kompose.service: reroute-api

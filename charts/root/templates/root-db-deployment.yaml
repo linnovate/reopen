@@ -18,7 +18,7 @@ spec:
         io.kompose.service: root-db
     spec:
       containers:
-      - image: "{{ .Values.image.registry }}/{{ .Values.root_db.deployment.image.name }}:{{ .Values.root_db.deployment.image.tag }}"
+      - image: "{{ .Values.global.image.registry }}/{{ .Values.root_db.deployment.image.name }}:{{ .Values.root_db.deployment.image.tag }}"
         name: root-db
         resources: {}
         

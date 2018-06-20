@@ -96,14 +96,9 @@ consumer:
       tag: 0.0.3
     resources: {}
 
-ingress:
-  wildcard: 'cluster.local'
-image: 
-  registry: 'docker.io'
- 
 global:
   ingress:
-    wildcard: 'cluster.local'
+    wildcard: 'services.danhotels.co.il'
   image: 
     registry: 'docker.io'
   reroute_api:

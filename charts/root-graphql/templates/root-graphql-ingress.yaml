@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
 spec:
   rules:
-  - host: root-graphql.{{ .Release.Namespace }}.{{ .Values.ingress.wildcard }}
+  - host: root-graphql.{{ .Release.Namespace }}.{{ .Values.global.ingress.wildcard }}
     http:
       paths:
       - path: /

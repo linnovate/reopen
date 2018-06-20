@@ -35,8 +35,8 @@ spec:
         - name: RABBITMQ_URL
           value: amqp://rabbitmq
         - name: RULES_API
-          value: "http://reroute-api:{{ .Values.reroute.reroute_api.service.default.port }}/api/rules"
-        image: "{{ .Values.image.registry }}/{{ .Values.consumer.deployment.image.name }}:{{ .Values.consumer.deployment.image.tag }}"
+          value: "http://reroute-api:{{ .Values.global.reroute_api.service.default.port }}/api/rules"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.consumer.deployment.image.name }}:{{ .Values.consumer.deployment.image.tag }}"
 
         name: consumer
         resources: {}

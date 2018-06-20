@@ -42,7 +42,7 @@ reroute_api:
   service:
     default:
       name: "4040"
-      port: 4040
+#      port: 4040 # this is configured globally because it used across recollect
       targetPort: 4040
 
 reroute_ui:
@@ -59,8 +59,13 @@ reroute_ui:
       targetPort: 9000
 
 # overriden by global when deployed as part of recollect
-ingress:
-  wildcard: 'cluster.local'
-image: 
-  registry: 'docker.io'
+global:
+  ingress:
+    wildcard: 'cluster.local'
+  image: 
+    registry: 'docker.io'
+  reroute_api:
+    service:
+      default:
+        port: 4040
 

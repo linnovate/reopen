@@ -25,8 +25,8 @@ spec:
         - name: PORT
           value: "{{ .Values.reroute_ui.service.default.targetPort }}"
         - name: RULES_API
-          value: "http://reroute-api:{{ .Values.reroute_api.service.default.port }}"
-        image: "{{ .Values.image.registry }}/{{ .Values.reroute_ui.deployment.image.name }}:{{ .Values.reroute_ui.deployment.image.tag }}"
+          value: "http://reroute-api:{{ .Values.global.reroute_api.service.default.port }}"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.reroute_ui.deployment.image.name }}:{{ .Values.reroute_ui.deployment.image.tag }}"
         name: reroute-ui
         ports:
         - containerPort: {{ .Values.reroute_ui.service.default.targetPort }} 

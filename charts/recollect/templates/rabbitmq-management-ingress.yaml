@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
 spec:
   rules:
-  - host: rabbitmq-management.{{ .Release.Namespace }}.{{ .Values.ingress.wildcard }}
+  - host: rabbitmq-management.{{ .Release.Namespace }}.{{ .Values.global.ingress.wildcard }}
     http:
       paths:
       - path: /

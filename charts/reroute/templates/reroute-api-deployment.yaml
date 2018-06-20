@@ -34,7 +34,7 @@ spec:
           value: development
         - name: PORT
           value: "{{ .Values.reroute_api.service.default.targetPort }}"
-        image: "{{ .Values.image.registry }}/{{ .Values.reroute_api.deployment.image.name }}:{{ .Values.reroute_api.deployment.image.tag }}"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.reroute_api.deployment.image.name }}:{{ .Values.reroute_api.deployment.image.tag }}"
         name: reroute-api
         ports:
         - containerPort: {{ .Values.reroute_api.service.default.targetPort }}

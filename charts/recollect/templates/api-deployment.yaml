@@ -36,7 +36,7 @@ spec:
           value: recollect-index
         - name: RABBITMQ_URL
           value: amqp://rabbitmq
-        image: "{{ .Values.image.registry }}/{{ .Values.api.deployment.image.name }}:{{ .Values.api.deployment.image.tag }}"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.api.deployment.image.name }}:{{ .Values.api.deployment.image.tag }}"
         name: api
         ports:
         - containerPort: {{ .Values.api.service.default.targetPort }}

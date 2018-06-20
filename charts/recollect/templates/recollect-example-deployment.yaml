@@ -24,7 +24,7 @@ spec:
         env:
         - name: RECOLLECT_API
           value: "http://api:{{ .Values.api.service.default.port }}/api/create"
-        image: "{{ .Values.image.registry }}/{{ .Values.recollect_example.deployment.image.name }}:{{ .Values.recollect_example.deployment.image.tag }}"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.recollect_example.deployment.image.name }}:{{ .Values.recollect_example.deployment.image.tag }}"
         name: recollect-example
         ports:
         - containerPort: {{ .Values.recollect_example.service.default.targetPort }}
