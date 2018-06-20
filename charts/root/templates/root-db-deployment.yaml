@@ -21,7 +21,7 @@ spec:
       - image: "{{ .Values.global.image.registry }}/{{ .Values.root_db.deployment.image.name }}:{{ .Values.root_db.deployment.image.tag }}"
         name: root-db
         resources: {}
-        
+{{- if eq .Values.root_db.persistence "local" }}
         volumeMounts:
         - name: mongo-volume
           mountPath: /data/db
@@ -30,6 +30,6 @@ spec:
       - name: mongo-volume
         hostPath:
           path: "/data/mongo/linnovate/root/{{ .Release.Namespace }}"
-
+{{- end }}
       restartPolicy: Always
 status: {}

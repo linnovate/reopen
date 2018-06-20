@@ -24,6 +24,7 @@ spec:
         ports:
         - containerPort: {{ .Values.root_app.service.default.targetPort }} 
         resources: {}
+{{- if eq .Values.root_app.persistence "local" }}
         volumeMounts:
           - name: root-uploads
             mountPath: /usr/src/app/files
@@ -32,5 +33,6 @@ spec:
       - name: root-uploads
         hostPath:
           path: "/data/uploads/linnovate/root/{{ .Release.Namespace }}"
+{{- end }}
       restartPolicy: Always
 status: {}
