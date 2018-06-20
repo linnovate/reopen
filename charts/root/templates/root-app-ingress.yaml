@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: root-app
-          servicePort: {{ .Values.root-app.service.default.port }}
+          servicePort: {{ .Values.root_app.service.default.port }}

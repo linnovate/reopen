@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: root-elastic
   name: root-elastic
 spec:
-  replicas: 1
+  replicas: {{ .Values.root_elastic.deployment.replicas }}
   strategy: {}
   template:
     metadata:
@@ -18,7 +18,7 @@ spec:
         io.kompose.service: root-elastic
     spec:
       containers:
-      - image: elasticsearch:5.6.9
+      - image: "{{ .Values.image.registry }}/{{ .Values.root_elastic.deployment.image.name }}:{{ .Values.root_elastic.deployment.image.tag }}"
         name: root-elastic
         resources: {}
       restartPolicy: Always

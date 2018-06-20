@@ -13,10 +13,10 @@
 #  cpu: 100m
 #  memory: 128Mi
 
-# image: {{ .Values.image.registry }}/{{ .Values.reroute-ui.deployment.image }}:{{ .Values.reroute-ui.deployment.tag }}
-# replicas: {{ .Values.reroute-ui.deployment.replicas }}
-# external-service-port: {{ .Values.reroute-ui.service.default.port }}
-# internal-service-port: {{ .Values.reroute-ui.service.default.targetPort }}
+# image: {{ .Values.image.registry }}/{{ .Values.example.deployment.image }}:{{ .Values.example.deployment.tag }}
+# replicas: {{ .Values.example.deployment.replicas }}
+# external-service-port: {{ .Values.example.service.default.port }}
+# internal-service-port: {{ .Values.example.service.default.targetPort }}
 # ingress: example.{{ .Release.Namespace }}.{{ .Values.ingress.wildcard }}
 
 mongo:
@@ -28,11 +28,11 @@ mongo:
     resources: {}
   service:
     default:
-      name: default
+      name: "27017"
       port: 27017
       targetPort: 27017
 
-reroute-api:
+reroute_api:
   deployment:
     replicas: 1
     image:
@@ -41,11 +41,11 @@ reroute-api:
     resources: {}
   service:
     default:
-      name: default
+      name: "4040"
       port: 4040
       targetPort: 4040
 
-reroute-ui:
+reroute_ui:
   deployment:
     replicas: 1
     image:
@@ -54,7 +54,7 @@ reroute-ui:
     resources: {}
   service:
     default:
-      name: default
+      name: "9000"
       port: 9000
       targetPort: 9000
 

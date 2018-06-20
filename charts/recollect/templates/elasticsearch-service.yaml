@@ -11,7 +11,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: {{ .Values.elasticsearch.service.default.name }} 
+  - name: "{{ .Values.elasticsearch.service.default.name }}"
     port: {{ .Values.elasticsearch.service.default.port }}
     targetPort: {{ .Values.elasticsearch.service.default.targetPort }}
   selector:

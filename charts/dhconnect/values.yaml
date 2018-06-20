@@ -28,7 +28,7 @@ dhconnect:
     resources: {}
   service:
     default:
-      name: default
+      name: "4041"
       port: 4041
       targetPort: 4041
 

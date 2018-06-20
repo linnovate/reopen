@@ -103,7 +103,7 @@ image:
  
 global:
   ingress:
-    wildcard: 'cluster.localy'
+    wildcard: 'cluster.local'
   image: 
     registry: 'docker.io'
   reroute_api:

@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: root-db
   name: root-db
 spec:
-  replicas: 1
+  replicas: {{ .Values.root_db.deployment.replicas }} 
   strategy: {}
   template:
     metadata:
@@ -18,7 +18,7 @@ spec:
         io.kompose.service: root-db
     spec:
       containers:
-      - image: mongo:3.6.3
+      - image: "{{ .Values.image.registry }}/{{ .Values.root_db.deployment.image.name }}:{{ .Values.root_db.deployment.image.tag }}"
         name: root-db
         resources: {}
         

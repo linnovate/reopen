@@ -12,7 +12,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: {{ .Values.api.service.default.name }}
+  - name: "{{ .Values.api.service.default.name }}"
     port: {{ .Values.api.service.default.port }}
     targetPort: {{ .Values.api.service.default.targetPort }}
   selector:

@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: recollect-example
-          servicePort: {{ .Values.recollect-example.service.default.port }}
+          servicePort: {{ .Values.recollect_example.service.default.port }}

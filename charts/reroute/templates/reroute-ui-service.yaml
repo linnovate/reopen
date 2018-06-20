@@ -11,9 +11,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: {{ .Values.reroute-ui.service.default.name }}
-    port: {{ .Values.reroute-ui.service.default.port }}
-    targetPort: {{ .Values.reroute-ui.service.default.targetPort }}
+  - name: "{{ .Values.reroute_ui.service.default.name }}"
+    port: {{ .Values.reroute_ui.service.default.port }}
+    targetPort: {{ .Values.reroute_ui.service.default.targetPort }}
   selector:
     io.kompose.service: reroute-ui
 status:

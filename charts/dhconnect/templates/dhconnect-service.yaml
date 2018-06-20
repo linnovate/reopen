@@ -11,7 +11,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: {{ .Values.dhconnect.service.default.name }} 
+  - name: "{{ .Values.dhconnect.service.default.name }}"
     port: {{ .Values.dhconnect.service.default.port }} 
     targetPort: {{ .Values.dhconnect.service.default.targetPort }} 
   selector:

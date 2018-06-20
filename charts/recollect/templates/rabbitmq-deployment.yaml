@@ -18,7 +18,7 @@ spec:
         io.kompose.service: rabbitmq
     spec:
       containers:
-      - image: {{ .Values.image.registry }}/{{ .Values.rabbitmq.deployment.image }}:{{ .Values.rabbitmq.deployment.tag }}
+      - image: "{{ .Values.image.registry }}/{{ .Values.rabbitmq.deployment.image.name }}:{{ .Values.rabbitmq.deployment.image.tag }}"
         name: rabbitmq
         ports:
         - containerPort: {{ .Values.rabbitmq.service.default.targetPort }}

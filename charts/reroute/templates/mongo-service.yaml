@@ -10,7 +10,7 @@ metadata:
   name: mongo
 spec:
   ports:
-  - name: {{ .Values.mongo.service.default.name }}
+  - name: "{{ .Values.mongo.service.default.name }}"
     port: {{ .Values.mongo.service.default.port }}
     targetPort: {{ .Values.mongo.service.default.targetPort }}
   selector:

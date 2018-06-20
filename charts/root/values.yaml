@@ -7,7 +7,7 @@
 # resources, such as Minikube. If you do want to specify resources, uncomment the following
 # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
 # limits:
-#  cpu: 100m
+#  cpu: 100m                                                                                                                                             
 #    memory: 128Mi
 # requests:
 #  cpu: 100m
@@ -19,20 +19,33 @@
 # internal-service-port: {{ .Values.example.service.default.targetPort }}
 # ingress: example.{{ .Release.Namespace }}.{{ .Values.ingress.wildcard }}
 
-recollect-example:
+root_app:
   deployment:
-   replicas: 1
+    replicas: 1
     image:
-      name: linnovate/recollect-example
-      tag: latest
+      name: linnovate/root
+      tag: 2.0.4 
     resources: {}
   service:
     default:
-      name: 3030
-      port: 3030
-      targetPort: 3030
+      name: "3000"
+      port: 3000
+      targetPort: 3000
 
-elasticsearch:
+root_db:
+  deployment:
+    replicas: 1
+    image:
+      name: mongo
+      tag: 3.6.3
+    resources: {}
+  service:
+    default:
+      name: "headless"
+      port: 55555
+      targetPort: 0
+
+root_elastic:
   deployment:
     replicas: 1
     image:
@@ -41,63 +54,13 @@ elasticsearch:
     resources: {}
   service:
     default:
-      name: default
-      port: 9200
-      targetPort: 9200
+      name: "headless"
+      port: 55555
+      targetPort: 0
 
-api:
-  deployment:
-    replicas: 1
-    image:
-      name: linnovate/recollect
-      tag: 0.0.3
-    resources: {}
-  service:
-    default:
-      name: 3005
-      port: 3005
-      targetPort: 3005
+# overriden by global when deployed as part of recollect
+ingress:
+  wildcard: 'cluster.local'
+image: 
+  registry: 'docker.io'
 
-kibana:
-  deployment:
-    replicas: 1
-    image:
-      name: kibana
-      tag: 5.5.0
-    resources: {}
-  service:
-    default:
-      name: 5601
-      port: 5601
-      targetPort: 5601
-
-rabbitmq:
-  deployment:
-    replicas: 1
-    image:
-      name: rabbitmq
-      tag: 3.6.15-management
-    resources: {}
-  service:
-    default:
-      name: 5672
-      port: 5672
-      targetPort: 5672
-    management:
-      name: management
-      port: 15672
-      targetPort: 15672
-
-consumer:
-  deployment:
-    replicas: 1
-    image:
-      name: linnovate/recollect
-      tag: 0.0.3
-    resources: {}
-
-global:
-  ingress:
-    wildcard: 'cluster.local'
-  image: 
-    registry: 'docker.io'

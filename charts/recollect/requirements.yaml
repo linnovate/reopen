@@ -1,6 +1,6 @@
 dependencies:
 - name: root
-  version: "0.1.0"
+  version: "2.0.4"
   repository: "file://../root"
 - name: reroute
   version: "0.1.0"

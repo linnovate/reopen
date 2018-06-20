@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: reroute-ui
   name: reroute-ui
 spec:
-  replicas: {{ .Values.reroute-ui.deployment.replicas }}
+  replicas: {{ .Values.reroute_ui.deployment.replicas }}
   strategy: {}
   template:
     metadata:
@@ -23,13 +23,13 @@ spec:
         - server
         env:
         - name: PORT
-          value: {{ .Values.reroute-ui.service.default.targetPort }} 
+          value: "{{ .Values.reroute_ui.service.default.targetPort }}"
         - name: RULES_API
-          value: http://reroute-api:{{ .Values.reroute-api.service.default.port }}
-        image: 
-        name: {{ .Values.image.registry }}/{{ .Values.reroute-ui.deployment.image }}:{{ .Values.reroute-ui.deployment.tag }}
+          value: "http://reroute-api:{{ .Values.reroute_api.service.default.port }}"
+        image: "{{ .Values.image.registry }}/{{ .Values.reroute_ui.deployment.image.name }}:{{ .Values.reroute_ui.deployment.image.tag }}"
+        name: reroute-ui
         ports:
-        - containerPort: {{ .Values.reroute-ui.service.default.targetPort }} 
+        - containerPort: {{ .Values.reroute_ui.service.default.targetPort }} 
         resources: {}
         workingDir: /usr/src/app
       restartPolicy: Always

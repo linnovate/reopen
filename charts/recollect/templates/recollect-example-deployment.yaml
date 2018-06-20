@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: recollect-example
   name: recollect-example
 spec:
-  replicas: {{ .Values.api.recollect-example.replicas }}
+  replicas: {{ .Values.recollect_example.deployment.replicas }}
   strategy: {}
   template:
     metadata:
@@ -23,11 +23,11 @@ spec:
         - start
         env:
         - name: RECOLLECT_API
-          value: http://api:{{ .Values.api.service.default.port }}/api/create
-        image: {{ .Values.image.registry }}/{{ .Values.recollect-example.deployment.image }}:{{ .Values.recollect-example.deployment.tag }}        
+          value: "http://api:{{ .Values.api.service.default.port }}/api/create"
+        image: "{{ .Values.image.registry }}/{{ .Values.recollect_example.deployment.image.name }}:{{ .Values.recollect_example.deployment.image.tag }}"
         name: recollect-example
         ports:
-        - containerPort: {{ .Values.recollect-example.service.default.targetPort }}
+        - containerPort: {{ .Values.recollect_example.service.default.targetPort }}
         resources: {}
         workingDir: /usr/src/app
       restartPolicy: Always

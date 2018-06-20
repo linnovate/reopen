@@ -11,10 +11,10 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: {{ .Values.rabbitmq.service.default.name }}
+  - name: "{{ .Values.rabbitmq.service.default.name }}"
     port: {{ .Values.rabbitmq.service.default.port }}                                           
     targetPort: {{ .Values.rabbitmq.service.default.targetPort }}
-  - name: {{ .Values.rabbitmq.service.management.name }}
+  - name: "{{ .Values.rabbitmq.service.management.name }}"
     port: {{ .Values.rabbitmq.service.management.port }}                                           
     targetPort: {{ .Values.rabbitmq.service.management.targetPort }}
   selector:

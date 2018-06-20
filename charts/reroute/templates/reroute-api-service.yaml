@@ -10,9 +10,9 @@ metadata:
   name: reroute-api
 spec:
   ports:
-  - name: {{ .Values.reroute-api.service.default.name }}
-    port:  {{ .Values.reroute-api.service.default.port }}
-    targetPort: {{ .Values.reroute-api.service.default.targetPort }} 
+  - name: "{{ .Values.reroute_api.service.default.name }}"
+    port:  {{ .Values.reroute_api.service.default.port }}
+    targetPort: {{ .Values.reroute_api.service.default.targetPort }} 
   selector:
     io.kompose.service: reroute-api
 status:

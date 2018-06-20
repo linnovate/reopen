@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: reroute-api
   name: reroute-api
 spec:
-  replicas: {{ .Values.reroute-api.deployment.replicas }}
+  replicas: {{ .Values.reroute_api.deployment.replicas }}
   strategy: {}
   template:
     metadata:
@@ -29,15 +29,15 @@ spec:
         - name: MONGO_HOST
           value: mongodb://mongo/reroute-api
         - name: MONGO_PORT
-          value: {{ .Values.mongo.service.default.port }}
+          value: "{{ .Values.mongo.service.default.port }}"
         - name: NODE_ENV
           value: development
         - name: PORT
-          value: {{ .Values.reroute-api.service.default.targetPort }} 
-        image: {{ .Values.image.registry }}/{{ .Values.reroute-api.deployment.image }}:{{ .Values.reroute-api.deployment.tag }}
+          value: "{{ .Values.reroute_api.service.default.targetPort }}"
+        image: "{{ .Values.image.registry }}/{{ .Values.reroute_api.deployment.image.name }}:{{ .Values.reroute_api.deployment.image.tag }}"
         name: reroute-api
         ports:
-        - containerPort: {{ .Values.reroute-api.service.default.targetPort }}
+        - containerPort: {{ .Values.reroute_api.service.default.targetPort }}
         resources: {}
         workingDir: /usr/src/app
       restartPolicy: Always

@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: root-app
   name: root-app
 spec:
-  replicas: 1
+  replicas: {{ .Values.root_app.deployment.replicas }} 
   strategy: {}
   template:
     metadata:
@@ -18,11 +18,11 @@ spec:
         io.kompose.service: root-app
     spec:
       containers:
-      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - image: "{{ .Values.image.registry }}/{{ .Values.root_app.deployment.image.name }}:{{ .Values.root_app.deployment.image.tag }}"
         imagePullPolicy: Always
         name: root-app
         ports:
-        - containerPort: 3000
+        - containerPort: {{ .Values.root_app.service.default.targetPort }} 
         resources: {}
         volumeMounts:
           - name: root-uploads
