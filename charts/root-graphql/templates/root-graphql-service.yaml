@@ -9,12 +9,11 @@ metadata:
     io.kompose.service: root-graphql
   name: root-graphql
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-  - name: "3007"
-    port: 3007
-    targetPort: 3007
-    nodePort: 30104
+  - name: "{{ .Values.root_graphql.service.default.name }}"
+    port: {{ .Values.root_graphql.service.default.port }}  
+    targetPort: {{ .Values.root_graphql.service.default.targetPort }} 
   selector:
     io.kompose.service: root-graphql
 status:

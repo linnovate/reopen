@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: root-graphql
   name: root-graphql
 spec:
-  replicas: 1
+  replicas: {{ .Values.root_graphql.deployment.replicas }}
   strategy: {}
   template:
     metadata:
@@ -34,10 +34,10 @@ spec:
             configMapKeyRef:
               key: ROOT_PORT
               name: root-graphql-env
-        image: linnovate/root-graphql:0.0.1
+        image: "{{ .Values.global.image.registry }}/{{ .Values.root_graphql.deployment.image.name }}:{{ .Values.root_graphql.deployment.image.tag }}"
         name: root-graphql
         ports:
-        - containerPort: 3007
+        - containerPort: {{ .Values.root_graphql.service.default.targetPort }}
         resources: {}
       restartPolicy: Always
 status: {}
