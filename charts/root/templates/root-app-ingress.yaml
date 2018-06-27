@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
 spec:
   rules:
-  - host: root-app.{{ .Release.Namespace }}.{{ .Values.global.ingress.wildcard }}
+  - host: {{ .Values.root_app.ingress.prefix }}.{{ .Release.Namespace }}.{{ .Values.global.ingress.wildcard }}
     http:
       paths:
       - path: /
