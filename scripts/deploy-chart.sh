@@ -5,5 +5,5 @@ namespace=$2
 chart_path=../charts/$chart
 deploy_name="${namespace}-${chart}"
 
-helm delete --purge $deploy_name || echo "chart was not installed"
+helm delete --purge $deploy_name || echo "chart might not have been installed previously"
 helm install --wait --name "$deploy_name" -f  "$chart_path/values.$namespace.yaml" --namespace "$namespace" $chart_path
