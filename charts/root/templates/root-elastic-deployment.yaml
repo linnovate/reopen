@@ -20,6 +20,8 @@ spec:
       containers:
       - image: "{{ .Values.global.image.registry }}/{{ .Values.root_elastic.deployment.image.name }}:{{ .Values.root_elastic.deployment.image.tag }}"
         name: root-elastic
-        resources: {{ .Values.root_elastic.resources }}
+        resources: 
+          limits: 
+            memory: {{ .Values.root_elastic.deployment.resources.limits.memory }}
       restartPolicy: Always
 status: {}
