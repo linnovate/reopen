@@ -29,6 +29,9 @@ spec:
           - name: root-uploads
             mountPath: /usr/src/app/files
             readOnly: false
+        envFrom:
+        - configMapRef:
+            name: "root-app-env"
       volumes:
       - name: root-uploads
         hostPath:
