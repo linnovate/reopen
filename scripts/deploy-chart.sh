@@ -1,5 +1,7 @@
 #!/bin/bash -xe
 
+declare ScriptDir && ScriptDir=$(readlink -f $(dirname ${0})) && cd ${ScriptDir}
+
 chart=$1
 namespace=$2
 chart_path=../charts/$chart
