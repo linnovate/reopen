@@ -1,0 +1,3 @@
+- clean up root chart
+- make root chart pretty like the others
+- in root chart, fix values.yaml so it has some good defaults
