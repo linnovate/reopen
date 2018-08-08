@@ -36,7 +36,9 @@ root_elastic:
       tag: 5.6.9
     resources:  
       limits:
-        memory: "256Mi"
+        memory: 356M # we set this to 100M more than the java memory setting below
+    environment:
+      es_java_opts: "-Xms256m -Xmx256m"
   service:
     default:
       name: "headless"
