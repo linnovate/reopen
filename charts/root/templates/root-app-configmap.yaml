@@ -1,13 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: root-app-env
 data:
   MY_VALUE: "Hello World"
   PORT: "{{ .Values.root_app.service.default.port }}"
   MONGODB_URI: "mongodb://root-db/icu"
   ELASTICSEARCH_IP: "root-elastic"
-metadata:
-  creationTimestamp: null
-  name: root-app-env
-
-  
-  
