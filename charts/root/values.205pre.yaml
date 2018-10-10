@@ -12,7 +12,7 @@ root_app:
       targetPort: 3000
   ingress:
     prefix: 'root'
-  persistence: "local"    
+  persistence: ""    
 
 root_db:
   deployment:
@@ -26,7 +26,7 @@ root_db:
       name: "headless"
       port: 55555
       targetPort: 0
-  persistence: "local"
+  persistence: ""
 
 root_elastic:
   deployment:
@@ -36,7 +36,7 @@ root_elastic:
       tag: 5.6.9
     resources: 
       limits:
-        memory: 356M # we set this to 100M more than the java memory setting below
+        memory: 356M 
     environment:
       es_java_opts: "-Xms256m -Xmx256m"
   service:
@@ -47,7 +47,7 @@ root_elastic:
       
 global:
   ingress:
-    wildcard: 'projects.linnovate.net'
+    wildcard: 'demos.linnovate.net'
   image: 
     registry: 'docker.io'
 

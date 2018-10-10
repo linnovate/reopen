@@ -1,3 +1,39 @@
 apiVersion: v1
-entries: {}
-generated: 2018-10-10T14:20:20.692177815+03:00
+entries:
+  recollect:
+  - apiVersion: v1
+    created: 2018-10-10T15:42:29.060654604+03:00
+    description: A Helm chart for Kubernetes
+    digest: b7302865f5de92307fef431bd647383c2e5e1416839eba97ede0a48ff7278dd3
+    name: recollect
+    urls:
+    - recollect-0.1.0.tgz
+    version: 0.1.0
+  reroute:
+  - apiVersion: v1
+    created: 2018-10-10T15:42:29.060916083+03:00
+    description: A Helm chart for Kubernetes
+    digest: 0845655784f4fe0b8c4427a667c10cb24823e6a9d650d51c68b2eb5ed21e9a77
+    name: reroute
+    urls:
+    - reroute-0.1.0.tgz
+    version: 0.1.0
+  root:
+  - apiVersion: v1
+    created: 2018-10-10T15:42:29.061213235+03:00
+    description: A Helm chart for Kubernetes
+    digest: 3a71e09cd8fed3b192fa1281d469535639e3a51b253506a8d1a9c9d8653507a0
+    name: root
+    urls:
+    - root-2.0.5pre.tgz
+    version: 2.0.5pre
+  root-graphql:
+  - apiVersion: v1
+    created: 2018-10-10T15:42:29.061420989+03:00
+    description: A Helm chart for Kubernetes
+    digest: e6d4bafc505b65acb5fdbf552b9670bc4f22f3add5fdcf063e490d59d81f8afc
+    name: root-graphql
+    urls:
+    - root-graphql-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-10-10T15:42:29.059632703+03:00

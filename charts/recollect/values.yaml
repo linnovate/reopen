@@ -98,7 +98,7 @@ consumer:
 
 global:
   ingress:
-    wildcard: 'cluster.local'
+    wildcard: 'demos.linnovate.net'
   image: 
     registry: 'docker.io'
   reroute_api:

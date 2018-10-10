@@ -3,5 +3,3 @@ kind: ConfigMap
 metadata:
   creationTimestamp: null
   name: root-elastic-env
-data:
-  ES_JAVA_OPTS: "{{ .Values.root_elastic.deployment.environment.es_java_opts }}"

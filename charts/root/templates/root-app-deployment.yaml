@@ -35,7 +35,7 @@ spec:
       volumes:
       - name: root-uploads
         hostPath:
-          path: "/data/uploads/linnovate/root/{{ .Release.Namespace }}"
+          path: "/tmp/uploads/linnovate/root/{{ .Release.Namespace }}"
 {{- end }}
       restartPolicy: Always
 status: {}
