@@ -1,0 +1,30 @@
+apiVersion: v1
+entries:
+  reroute:
+  - apiVersion: v1
+    created: 2018-10-10T14:20:46.127286512+03:00
+    description: A Helm chart for Kubernetes
+    digest: 0845655784f4fe0b8c4427a667c10cb24823e6a9d650d51c68b2eb5ed21e9a77
+    name: reroute
+    urls:
+    - charts/reroute-0.1.0.tgz
+    version: 0.1.0
+  root:
+  - apiVersion: v1
+    created: 2018-10-10T14:20:46.127578601+03:00
+    description: A Helm chart for Kubernetes
+    digest: 49a4a638f1d85c8cadc2f4958d6421802705863cba3d1884ad6a57876ce63f38
+    name: root
+    urls:
+    - charts/root-2.0.4.tgz
+    version: 2.0.4
+  root-graphql:
+  - apiVersion: v1
+    created: 2018-10-10T14:20:46.127795298+03:00
+    description: A Helm chart for Kubernetes
+    digest: e6d4bafc505b65acb5fdbf552b9670bc4f22f3add5fdcf063e490d59d81f8afc
+    name: root-graphql
+    urls:
+    - charts/root-graphql-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-10-10T14:20:46.126843855+03:00
