@@ -1,0 +1,121 @@
+group: 'reindex'
+deployenv: 'prod'
+
+app:
+  name: 'reindex-app'
+  deployment:
+#    configmap: ''
+    replicas: 1
+    image:
+#      name: 'linnovate/republish'
+      tag: '1'
+    resources: {}
+  service:
+    default:
+      name: "http"
+      port: 80
+      targetPort: 80
+  ingress:
+    prefix: 'reindex'
+# overriden by global when deployed as a subchart
+global:
+  ingress:
+    wildcard: 'demos.linnovate.net'
+  image: 
+    registry: ''
+##############################################################
+api:
+  name: 'reindex-api'
+  deployment:
+#    configmap: ''
+    replicas: 1
+    image:
+#      name: 'linnovate/republish'
+      tag: '1'
+    resources: {}
+  service:
+    default:
+      name: "http"
+      port: 80
+      targetPort: 80
+  ingress:
+    prefix: 'reindex'
+# overriden by global when deployed as a subchart
+global:
+  ingress:
+    wildcard: 'demos.linnovate.net'
+  image:
+    registry: ''
+
+###############################################################
+rabbit:
+  name: 'reindex-rabbit'
+  deployment:
+#    configmap: ''
+    replicas: 1
+    image:
+#      name: 'linnovate/republish'
+      tag: '1'
+    resources: {}
+  service:
+    default:
+      name: "http"
+      port: 80
+      targetPort: 80
+  ingress:
+    prefix: 'reindex'
+# overriden by global when deployed as a subchart
+global:
+  ingress:
+    wildcard: 'demos.linnovate.net'
+  image:
+    registry: ''
+#############################################################
+
+mongo:
+  name: 'reindex-mongo'
+  deployment:
+#    configmap: ''
+    replicas: 1
+    image:
+#      name: 'linnovate/republish'
+      tag: '1'
+    resources: {}
+  service:
+    default:
+      name: "http"
+      port: 27017
+      targetPort: 27017
+  ingress:
+    prefix: 'reindex'
+# overriden by global when deployed as a subchart
+global:
+  ingress:
+    wildcard: 'demos.linnovate.net'
+  image:
+    registry: ''
+#############################################################
+
+mongo:
+  name: 'reindex-mongo'
+  deployment:
+#    configmap: ''
+    replicas: 1
+    image:
+#      name: 'linnovate/republish'
+      tag: '1'
+    resources: {}
+  service:
+    default:
+      name: "http"
+      port: 27017
+      targetPort: 27017
+  ingress:
+    prefix: 'reindex'
+# overriden by global when deployed as a subchart
+global:
+  ingress:
+    wildcard: 'demos.linnovate.net'
+  image:
+    registry: ''
+

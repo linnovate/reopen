@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.elastic.name }}-{{ .Values.deployenv }}-deployment"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+spec:
+  replicas: {{ .Values.elastic.deployment.replicas }}
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.elastic.name }}-{{ .Values.deployenv }}"
+    spec:
+      containers:
+      - name: "{{ .Values.elastic.name }}-{{ .Values.deployenv }}"
+        image: elasticsearch:5.6
+        imagePullPolicy: Always
+
+

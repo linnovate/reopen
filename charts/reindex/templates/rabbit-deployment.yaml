@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.rabbit.name }}-{{ .Values.deployenv }}-deployment"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+spec:
+  replicas: {{ .Values.rabbit.deployment.replicas }}
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.rabbit.name }}-{{ .Values.deployenv }}"
+    spec:
+      containers:
+      - name: "{{ .Values.rabbit.name }}-{{ .Values.deployenv }}"
+        image: rabbitmq:3.6-management
+        imagePullPolicy: Always
+
+

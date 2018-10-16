@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.app.name }}-{{ .Values.deployenv }}-deployment"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+spec:
+  replicas: {{ .Values.app.deployment.replicas }}
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.app.name }}-{{ .Values.deployenv }}"
+    spec:
+      containers:
+      - name: "{{ .Values.app.name }}-{{ .Values.deployenv }}"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.app.name }}-{{ .Values.deployenv }}:{{ .Values.app.deployment.image.tag }}"
+        imagePullPolicy: Always
+
+        command: ["npm run dev"]
+
+
+        env:
+        - name: NODE_ENV
+          value: "${APP_NODE_ENV}"
+        - name: PORT
+          value: "${APP_HTTP_PORT}"
+        - name: API_URL
+          value: "http://${COMPOSE_PROJECT_NAME}_api:${API_HTTP_PORT}"
+
+
+
+        ports:
+        - containerPort: {{ .Values.app.service.default.targetPort }}
+        volumeMounts:
+        - name: "nfs-{{ .Values.app.name }}-{{ .Values.deployenv }}-volume"
+          mountPath: /var/www/html/sites/default/files
+      volumes:
+      - name: "nfs-{{ .Values.app.name }}-{{ .Values.deployenv }}-volume"
+        persistentVolumeClaim:
+          claimName: "nfs-{{ .Values.app.name }}-{{ .Values.deployenv }}-claim"
+
+      nodeSelector:
+        env: "{{ .Values.deployenv }}"
+
+

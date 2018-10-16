@@ -1,0 +1,4 @@
+apiVersion: v1
+description: reindex
+name: reindex
+version: 1.0

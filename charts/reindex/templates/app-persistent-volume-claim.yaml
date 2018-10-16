@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "nfs-{{ .Values.app.name }}-{{ .Values.deployenv }}-claim"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2.5G
+  volumeName: "nfs-{{ .Values.app.name }}-{{ .Values.deployenv }}"

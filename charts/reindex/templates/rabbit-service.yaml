@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Values.rabbit.name }}-{{ .Values.deployenv }}-service"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+  labels:
+    api: "{{ .Values.rabbit.name }}-{{ .Values.deployenv }}"
+spec:
+#  type: NodePort
+  type: ClusterIP
+  ports:
+  - port: {{ .Values.rabbit.service.default.port }}
+    targetPort: {{ .Values.rabbit.service.default.targetPort }}
+  selector:
+    api: "{{ .Values.rabbit.name }}-{{ .Values.deployenv }}"

@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "{{ .Values.app.name }}-{{ .Values.deployenv }}-ingress"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+spec:
+  rules:
+  - host: '{{ .Values.app.name }}.{{ .Values.deployenv }}.demos.linnovate.net'
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: "{{ .Values.app.name }}-{{ .Values.deployenv }}-service"
+          servicePort: {{ .Values.app.service.default.port }}

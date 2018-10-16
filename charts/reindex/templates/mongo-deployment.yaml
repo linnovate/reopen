@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.mongo.name }}-{{ .Values.deployenv }}-deployment"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+spec:
+  replicas: {{ .Values.mongo.deployment.replicas }}
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.mongo.name }}-{{ .Values.deployenv }}"
+    spec:
+      containers:
+      - name: "{{ .Values.mongo.name }}-{{ .Values.deployenv }}"
+        image: mongo:3.6
+        imagePullPolicy: Always
+
+

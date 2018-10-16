@@ -1,0 +1,47 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.api.name }}-{{ .Values.deployenv }}-deployment"
+  namespace: "{{ .Values.group }}-{{ .Values.deployenv }}"
+spec:
+  replicas: {{ .Values.api.deployment.replicas }}
+  template:
+    metadata:
+      labels:
+        api: "{{ .Values.api.name }}-{{ .Values.deployenv }}"
+    spec:
+      containers:
+      - name: "{{ .Values.api.name }}-{{ .Values.deployenv }}"
+        image: "{{ .Values.global.image.registry }}/{{ .Values.api.name }}-{{ .Values.deployenv }}:{{ .Values.api.deployment.image.tag }}"
+        imagePullPolicy: Always
+
+        command: ["npm run dev"]
+
+
+        env:
+        - name: PORT
+          value: "${PORT}"
+        - name: ELASTIC_HOST
+          value: "${COMPOSE_PROJECT_NAME}_elasticsearch"
+        - name: RABBITMQ_HOST
+          value: "${COMPOSE_PROJECT_NAME}_rabbit"
+        - name: DB_PORT_27017_TCP_ADDR
+          value: "${COMPOSE_PROJECT_NAME}_mongo"
+
+
+
+
+        ports:
+        - containerPort: {{ .Values.api.service.default.targetPort }}
+        volumeMounts:
+        - name: "nfs-{{ .Values.api.name }}-{{ .Values.deployenv }}-volume"
+          mountPath: /var/www/html/sites/default/files
+      volumes:
+      - name: "nfs-{{ .Values.api.name }}-{{ .Values.deployenv }}-volume"
+        persistentVolumeClaim:
+          claimName: "nfs-{{ .Values.api.name }}-{{ .Values.deployenv }}-claim"
+
+      nodeSelector:
+        env: "{{ .Values.deployenv }}"
+
+
